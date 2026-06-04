@@ -44,7 +44,3 @@ Next steps:
 ## Vision
 
 To give every Arabic-speaking parent a trusted tool to support their child's healthiest possible start in life.
-
----
-
-*This project is being developed as part of an application to the MENA Digital Summer School 2026.*
