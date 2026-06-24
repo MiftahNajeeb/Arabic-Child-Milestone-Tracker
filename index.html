@@ -14,16 +14,17 @@
     rel="stylesheet" />
   <style>
     :root {
-      --bg: #f6f6f1;
-      --surface: #ffffff;
-      --surface-soft: #f0f1eb;
-      --ink: #171b18;
-      --ink-soft: #57605a;
-      --line: #d8ddd6;
-      --accent: #244e46;
-      --accent-soft: #e8f0ed;
-      --warm: #8c5e31;
-      --shadow: 0 10px 30px rgba(23, 27, 24, 0.05);
+      --bg: #eef5f8;
+      --surface: #fdfefe;
+      --surface-soft: #edf5f9;
+      --ink: #243041;
+      --ink-soft: #4e5a69;
+      --line: #d5e5ef;
+      --accent: #4a97c2;
+      --accent-strong: #356f95;
+      --accent-soft: #e6f3fa;
+      --warm: #b78343;
+      --shadow: 0 10px 30px rgba(43, 86, 116, 0.08);
     }
 
     * {
@@ -53,7 +54,7 @@
 
     a:focus-visible,
     button:focus-visible {
-      outline: 3px solid rgba(36, 78, 70, 0.22);
+      outline: 3px solid rgba(74, 151, 194, 0.24);
       outline-offset: 3px;
     }
 
@@ -161,12 +162,12 @@
     .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
-      color: #f7faf8;
+      color: #f8fcfe;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(36, 78, 70, 0.12);
+      box-shadow: 0 12px 24px rgba(74, 151, 194, 0.2);
     }
 
     .btn-secondary {
@@ -176,7 +177,7 @@
 
     .btn-secondary:hover {
       background: var(--surface);
-      border-color: #c6cec6;
+      border-color: #bdd8e7;
     }
 
     .hero-meta {
@@ -287,16 +288,16 @@
     }
 
     .demo {
-      background: #121816;
-      color: #eef3f0;
+      background: #dcecf5;
+      color: var(--ink);
     }
 
     .demo .section-head h2 {
-      color: #f5f8f6;
+      color: var(--ink);
     }
 
     .demo .section-head p {
-      color: #bdc8c1;
+      color: var(--ink-soft);
     }
 
     .demo-grid {
@@ -311,9 +312,9 @@
       margin-inline: auto;
       padding: 14px;
       border-radius: 38px;
-      background: #0d1210;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+      background: #d7e9f3;
+      border: 1px solid rgba(74, 151, 194, 0.18);
+      box-shadow: 0 28px 70px rgba(53, 111, 149, 0.18);
     }
 
     .demo-frame {
@@ -332,7 +333,7 @@
 
     .demo-copy p {
       margin-top: 16px;
-      color: #bdc8c1;
+      color: var(--ink-soft);
       font-size: 16px;
       max-width: 38em;
     }
@@ -346,8 +347,8 @@
 
     .demo-points li {
       padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: #dbe4df;
+      border-top: 1px solid rgba(74, 151, 194, 0.16);
+      color: var(--ink-soft);
       font-size: 15px;
     }
 
