@@ -1,0 +1,36 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python local server cache
+__pycache__/
+*.pyc
+
+# Dependency folders
+node_modules/
+Arabic Child Milestone Tracker/node_modules/
+
+# Build caches
+.vite/
+Arabic Child Milestone Tracker/.vite/
+.cache/
+coverage/
+
+# Keep the nested dist folder tracked for deployment because
+# the root landing page iframe points to it directly.
+# If you later switch to a different deployment flow, you can revisit this.

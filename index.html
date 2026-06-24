@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arabic Child Milestone Tracker</title>
+  <meta name="description"
+    content="A free, Arabic-first mobile application that helps parents track child development, recognize potential delays early, and bring a clear summary into the conversation with their doctor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cairo:wght@500;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f6f1;
+      --surface: #ffffff;
+      --surface-soft: #f0f1eb;
+      --ink: #171b18;
+      --ink-soft: #57605a;
+      --line: #d8ddd6;
+      --accent: #244e46;
+      --accent-soft: #e8f0ed;
+      --warm: #8c5e31;
+      --shadow: 0 10px 30px rgba(23, 27, 24, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-wrap: pretty;
+    }
+
+    a,
+    button,
+    iframe {
+      transition: border-color .18s ease, background-color .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(36, 78, 70, 0.22);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-head {
+      padding: 28px 0;
+    }
+
+    .site-head .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .head-link {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .head-link:hover {
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 40px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .kicker {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: balance;
+      letter-spacing: -0.04em;
+      line-height: 0.97;
+    }
+
+    .hero h1 {
+      margin-top: 14px;
+      font-size: clamp(42px, 7vw, 78px);
+      max-width: 11ch;
+      font-weight: 800;
+      margin-inline: auto;
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 67ch;
+      color: var(--ink-soft);
+      font-size: 18px;
+      margin-inline: auto;
+    }
+
+    .hero-copy p+p {
+      margin-top: 14px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #f7faf8;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(36, 78, 70, 0.12);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface);
+      border-color: #c6cec6;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+      max-width: 860px;
+      margin-inline: auto;
+    }
+
+    .hero-meta div {
+      padding: 14px 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-meta strong {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-meta span {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-main {
+      text-align: center;
+    }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      max-width: 58rem;
+      margin-bottom: 32px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 800;
+    }
+
+    .section-head p {
+      margin-top: 14px;
+      color: var(--ink-soft);
+      font-size: 17px;
+    }
+
+    .credibility {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .credibility-copy {
+      display: grid;
+      gap: 16px;
+      color: var(--ink-soft);
+      font-size: 17px;
+    }
+
+    .credibility-copy strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .credibility-notes {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .note {
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .note:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .note+.note {
+      margin-top: 16px;
+    }
+
+    .note h3 {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .note p {
+      margin-top: 8px;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .demo {
+      background: #121816;
+      color: #eef3f0;
+    }
+
+    .demo .section-head h2 {
+      color: #f5f8f6;
+    }
+
+    .demo .section-head p {
+      color: #bdc8c1;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .demo-frame-wrap {
+      width: min(100%, 390px);
+      margin-inline: auto;
+      padding: 14px;
+      border-radius: 38px;
+      background: #0d1210;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+    }
+
+    .demo-frame {
+      display: block;
+      width: 100%;
+      height: 844px;
+      border: 0;
+      border-radius: 26px;
+      background: #ffffff;
+    }
+
+    .demo-copy h3 {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 800;
+    }
+
+    .demo-copy p {
+      margin-top: 16px;
+      color: #bdc8c1;
+      font-size: 16px;
+      max-width: 38em;
+    }
+
+    .demo-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+      list-style: none;
+    }
+
+    .demo-points li {
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #dbe4df;
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    @media (max-width: 960px) {
+
+      .credibility,
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .site-head .wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-frame {
+        height: 760px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      a,
+      button,
+      iframe {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a href="#" class="brand">Arabic Child Milestone Tracker</a>
+      <a href="#demo" class="head-link">See live demo</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-main">
+          <span class="kicker">Arabic-first child development support</span>
+          <h1>Arabic Child Milestone Tracker</h1>
+          <div class="hero-copy">
+            <p>Arabic Child Milestone Tracker is a free, Arabic-first mobile application that helps parents track their
+              child's early development
+              and recognize potential delays at the stage when intervention matters most.</p>
+            <p>The project is built on a foundation of medical credibility. Its developmental milestones are modeled on
+              the framework of the United States CDC Milestone Tracker, bringing that same standard of expert-reviewed
+              accuracy into Arabic for families in Libya and across the Arab world.</p>
+          </div>
+          <div class="hero-actions">
+            <a href="#demo" class="btn btn-primary">Open live demo</a>
+            <a href="#why" class="btn btn-secondary">Why this matters</a>
+          </div>
+          <div class="hero-meta" aria-label="Key project facts">
+            <div>
+              <strong>400M+</strong>
+              <span>Arabic speakers currently underserved by reliable milestone tools</span>
+            </div>
+            <div>
+              <strong>CDC-based</strong>
+              <span>Grounded in a medically reviewed milestone framework already trusted by families and doctors</span>
+            </div>
+            <div>
+              <strong>Arabic-first</strong>
+              <span>Designed for language, culture, and right-to-left use from the start</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Why this matters</span>
+          <h2>Medical credibility, translated into Arabic for the first time.</h2>
+          <p>The aim is a tool parents can trust because it is grounded in established medical standards, and one
+            doctors can rely on because it strengthens the conversation between families and clinicians rather than
+            replacing it.</p>
+        </div>
+
+        <div class="credibility">
+          <div class="credibility-copy">
+            <p>In the United States, the CDC Milestone Tracker is trusted by millions of families and recommended by
+              doctors because every milestone in it was reviewed and approved by pediatric and child-development
+              experts.</p>
+            <p><strong>Arabic Child Milestone Tracker</strong> is designed to bring that same standard of accuracy into
+              Arabic, adapting it culturally and linguistically for families in Libya and across the Arab world.</p>
+            <p>What makes the project valuable is the gap it fills. A reliable, clinically grounded way to monitor child
+              development in Arabic simply does not exist today, even though the need spans more than 400 million Arabic
+              speakers.</p>
+          </div>
+
+          <div class="credibility-notes">
+            <div class="note">
+              <h3>Why this matters now</h3>
+              <p>When concerns appear early, families need something clearer than guesswork and more responsible than
+                informal advice.</p>
+            </div>
+            <div class="note">
+              <h3>What changes in practice</h3>
+              <p>Parents get a structured, understandable way to follow milestones, watch for warning signs, and arrive
+                at appointments better prepared.</p>
+            </div>
+            <div class="note">
+              <h3>What the product is not</h3>
+              <p>It is not a diagnosis engine. It is a trustworthy support tool that helps parents notice, document, and
+                discuss development earlier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="demo">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Live demo</span>
+          <h2>The current mobile prototype.</h2>
+          <p>The live demo below uses the real built app from the React project, including the Arabic onboarding flow,
+            milestone checklist, tools, and doctor summary screens.</p>
+        </div>
+
+        <div class="demo-grid">
+          <div class="demo-frame-wrap">
+            <iframe class="demo-frame" src="./Arabic Child Milestone Tracker/dist/index.html"
+              title="Arabic Child Milestone Tracker live demo" loading="lazy" referrerpolicy="no-referrer"></iframe>
+          </div>
+
+          <div class="demo-copy">
+            <h3>A quieter page, with the real product doing the talking.</h3>
+            <p>The landing page no longer tries to oversell the idea. It explains the need, establishes credibility, and
+              then moves quickly to the working prototype.</p>
+            <ul class="demo-points">
+              <li>The demo is the actual built React application, not a static mockup.</li>
+              <li>It shows how Arabic-first design, milestone tracking, and doctor-ready summaries work together in
+                practice.</li>
+              <li>The product remains grounded in expert-reviewed standards and keeps medical professionals at the
+                center of care.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Arabic Child Milestone Tracker · prototype · 2026</div>
+  </footer>
+</body>
+
+</html>
